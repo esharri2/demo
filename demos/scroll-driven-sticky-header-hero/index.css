@@ -1,0 +1,40 @@
+/* STICKY HEADER */
+
+@keyframes sticky-parallax-header-move-and-size {
+  from {
+    background-position: 50% 0;
+    height: 100vh;
+    font-size: calc(1vw + 1em);
+  }
+  to {
+    background-position: 50% 100%;
+    background-color: black;
+    height: 10vh;
+    font-size: 1em;
+  }
+}
+
+#sticky-parallax-header {
+  position: fixed;
+  top: 0;
+  animation: sticky-parallax-header-move-and-size linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 90vh;
+
+  color: #fff;
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://picsum.photos/1600/900");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: soft-light;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: calc(4vw + 1em);
+  z-index: 1;
+}
+
+body {
+  padding-top: 100vh;
+}
