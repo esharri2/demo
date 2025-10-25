@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <title>Evan's Demos</title>
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="stylesheet" href=".{{ page.url }}index.css" />
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="{{ page.url }}index.css" />
   </head>
   <body>
     {% if page.url != "/"%}
       <a class="back" href="/">Back</a>
     {% endif %}
-    <main class="mb-6 leading-relaxed" id="main">{{ content }}</main>
+    <main id="main">{{ content }}</main>
   </body>
 </html>
