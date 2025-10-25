@@ -13,7 +13,7 @@ title: My Rad Markdown Blog Post
   <ul>
     {%- for demo in collections.demos -%}
       <li>
-        <a href="{{demo.url}}">{{ demo.data.title }}</a>
+        <a href="demo/{{demo.url}}">{{ demo.data.title }}</a>
         <span class="tag-container">
           {%- for tag in demo.data.tags -%}
             {%- if tag != 'demos' -%}
