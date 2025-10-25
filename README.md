@@ -1,1 +1,0 @@
-These are some demos I use for personal reference. Many of them are adapted from elsewhere.
