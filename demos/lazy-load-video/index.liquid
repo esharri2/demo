@@ -1,0 +1,22 @@
+---
+title: "Lazy load video"
+tags: ["Web components"]
+---
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+
+<lazy-load-video>
+  <video poster="{{ '/assets/flower.png' | htmlBaseUrl }}" preload="none" autoplay muted controls>
+    <source
+      data-src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm"
+      type="video/webm"
+    >
+  </video>
+</lazy-load-video>
+
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}

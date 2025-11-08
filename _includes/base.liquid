@@ -4,6 +4,8 @@
     <title>Evan's Demos</title>
     <link rel="stylesheet" href="{{ '/main.css' | htmlBaseUrl }}" />
     <link rel="stylesheet" href="{{ page.url | append: "index.css" | htmlBaseUrl }}" />
+    <script type="module" src="{{ page.url | append: "index.js" | htmlBaseUrl }}"></script>
+
   </head>
   <body>
     {% if page.url != "/"%}
