@@ -12,6 +12,7 @@ export class LazyLoadVideo extends HTMLElement {
   observeVideos() {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(({target, isIntersecting}) => {
+        // TODO should we also check if video element is display: hidden? 
         if (isIntersecting) {
           this.loadVideo(target);
         }
