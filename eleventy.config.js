@@ -1,7 +1,6 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
-  console.log("DERP: ", eleventyConfig.pathPrefix)
   eleventyConfig.addPassthroughCopy("**/*.css");
   eleventyConfig.addPassthroughCopy("**/*.js");
   eleventyConfig.addPassthroughCopy("**/assets/*");
@@ -12,7 +11,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(HtmlBasePlugin, {
     // The base URL: defaults to Path Prefix
-    baseHref: eleventyConfig.pathPrefix || "/",
+    baseHref: eleventyConfig.pathPrefix || "/demo",
 
     // But you could use a full URL here too:
     // baseHref: "http://example.com/"
