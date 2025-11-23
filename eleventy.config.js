@@ -12,7 +12,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(HtmlBasePlugin, {
     // The base URL: defaults to Path Prefix
-    baseHref: eleventyConfig.pathPrefix || "/demo",
+    baseHref: eleventyConfig.pathPrefix || "/",
 
     // But you could use a full URL here too:
     // baseHref: "http://example.com/"
