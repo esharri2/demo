@@ -1,6 +1,7 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
+  console.log("DERP: ", eleventyConfig.pathPrefix)
   eleventyConfig.addPassthroughCopy("**/*.css");
   eleventyConfig.addPassthroughCopy("**/*.js");
   eleventyConfig.addPassthroughCopy("**/assets/*");
