@@ -1,0 +1,12 @@
+* {
+  transition: all;
+  transition-duration: 1s;
+}
+
+.red {
+  color: red;
+}
+
+.purple {
+  color: purple
+}
