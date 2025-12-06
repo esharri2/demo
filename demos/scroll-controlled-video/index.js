@@ -12,8 +12,6 @@
 
 
 
-
-// Wrap autoplay video element with one or more source elements that have the `src` attribute replaced with `data-src`
 export class ScrollControlledVideo extends HTMLElement {
   static register(tagName) {
     customElements.define(
@@ -21,8 +19,6 @@ export class ScrollControlledVideo extends HTMLElement {
       ScrollControlledVideo
     );
   }
-
-  visibleVideos = [];
 
   connectedCallback() {
     this.video = this.querySelector("video");
@@ -49,14 +45,12 @@ export class ScrollControlledVideo extends HTMLElement {
       top: clientRect.y + window.scrollY,
       bottom: clientRect.bottom - window.innerHeight + window.scrollY,
     };
-    console.log(this.wrapperPositions);
   }
 
-  handleScroll(event) {
+  handleScroll() {
     const { top, bottom } = this.wrapperPositions;
 
     const progress = Math.max(
-      // Math.min((window.scrollY - top) / (bottom - top), 0.998),
       (window.scrollY - top) / (bottom - top),
       0
     );
