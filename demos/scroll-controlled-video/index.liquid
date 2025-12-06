@@ -9,7 +9,13 @@ tags: ["Web components", "Video"]
 
 <scroll-controlled-video>
   <div class="scroll-controlled-video-wrapper">
-    <video src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm" controls poster="{{ '/assets/flower.png' | htmlBaseUrl }}" preload="metadata" muted loop>
+    {% comment %} Plane {% endcomment %}
+    <video src="https://primesolid.com/video-scrub-tests/plane-landing-original-ffmpeg-720p-crf18-g2.mp4?foo" poster="{{ '/assets/flower.png' | htmlBaseUrl }}" preload="metadata" muted loop>
+
+
+
+    {% comment %} <video src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm" poster="{{ '/assets/flower.png' | htmlBaseUrl }}" preload="metadata" muted loop> {% endcomment %}
+
       {% comment %} <source
         data-src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm"
         src="https://primesolid.com/video-scrub-tests/plane-landing-original-ffmpeg-720p-crf18-g2.mp4?foo"
