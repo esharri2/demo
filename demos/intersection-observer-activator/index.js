@@ -20,11 +20,10 @@ export class IntersectionObserverActivator extends HTMLElement {
   observe() {
     this.observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(({ target, isIntersecting }) => {
+        entries.forEach(({ isIntersecting }) => {
           if (isIntersecting) {
             const classList = this.classList
             if (this.classesToRemove) {
-              console.log(this.classesToRemove.split(","))
               classList.remove.apply(classList, this.classesToRemove.split(","));
             }
 
@@ -39,7 +38,7 @@ export class IntersectionObserverActivator extends HTMLElement {
       {
         rootMargin: this.rootMargin,
         scrollMargin: this.scrollMargin,
-        threshold: this.threshold,
+        threshold: Number(this.threshold),
       }
     );
     this.observer.observe(this);
