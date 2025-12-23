@@ -5,16 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/demo/main.css">
-    <link rel="stylesheet" href="/demo/demos/scroll-controlled-video/index.css">
-    <script type="module" src="/demo/demos/scroll-controlled-video/index.js"></script>
+    <link rel="stylesheet" href="/demo/demos/dynamic-floating-button/index.css">
+    <script type="module" src="/demo/demos/dynamic-floating-button/index.js"></script>
 
   </head>
   <body>
     
       <a class="back" href="/demo/">Back</a>
     
-    <main id="main"><h1>Scroll-controlled video</h1>
-<p>
+    <main id="main"><div class="hero">
+  <h1>Dynamic floating button</h1>
+  <p>Doesn't appear until main body of page is within middle of page</p>
+  <p>Disappears over hero and footer</p>
+</div>
+<dynamic-button-handler>
+  <section class="main-content">
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -58,7 +64,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -102,7 +108,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -147,21 +153,8 @@
 </p>
 
 
-<scroll-controlled-video>
-  <div class="scroll-controlled-video-wrapper">
-    
-    <video src="https://primesolid.com/video-scrub-tests/plane-landing-original-ffmpeg-720p-crf18-g2.mp4?foo" poster="/demo/demo/assets/flower.png" preload="metadata" muted="" playsinline="">
-
-
-
-    
-
-      
-    </video>
-  </div>
-</scroll-controlled-video>
-
-<p>
+    <button class="floating-button hidden">Hello world</button>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -205,7 +198,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -249,7 +242,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -293,7 +286,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -337,7 +330,7 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
-<p>
+    <p>
   Turpis primis proin erat etiam pulvinar phasellus iaculis magna massa. Netus rutrum euismod ligula nostra convallis
   viverra. Scelerisque senectus suspendisse sagittis vulputate lacus adipiscing tempor faucibus ultricies. Convallis
   inceptos magna velit semper vitae convallis enim? Turpis massa natoque non integer erat feugiat. Rhoncus ad sapien
@@ -381,6 +374,9 @@
   pellentesque leo laoreet. Iaculis?
 </p>
 
+  </section>
+</dynamic-button-handler>
+<footer>Footer</footer>
 </main>
   </body>
 </html>
