@@ -1,0 +1,23 @@
+.floating-button {
+  background-color: hotpink;
+  color: black;
+  position: fixed;
+  padding: 20px;
+  font-size: 30px;
+  bottom: 10dvh;
+  left: 20px;
+}
+
+.hero {
+  height: 900px;
+  background-color: bisque;
+}
+
+footer {
+  background-color: lime;
+  height: 700px;
+}
+
+.hidden {
+  display: none;
+}

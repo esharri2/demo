@@ -11,7 +11,6 @@ export class IntersectionObserverActivator extends HTMLElement {
     this.classesToRemove = this.getAttribute("classes-to-remove");
     if (this.classesToAdd || this.classesToRemove) {
       this.rootMargin = this.getAttribute("root-margin") || "0px";
-      this.scrollMargin = this.getAttribute("scroll-margin") || "0px";
       this.threshold = this.getAttribute("threshold") || 0;
       this.observe();
     }
@@ -37,7 +36,6 @@ export class IntersectionObserverActivator extends HTMLElement {
       },
       {
         rootMargin: this.rootMargin,
-        scrollMargin: this.scrollMargin,
         threshold: Number(this.threshold),
       }
     );
