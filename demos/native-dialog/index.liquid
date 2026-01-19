@@ -1,0 +1,34 @@
+---
+title: "Native dialog"
+tags: ["HTML"]
+---
+<modal-open-trigger data-for="modal-left">
+  <button>Open left drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-left" data-variant="left">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Left drawer</h2>
+  <p>Hello world.</p>
+</dialog>
+
+<modal-open-trigger data-for="modal-right">
+  <button>Open right drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-right" data-variant="right">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Right drawer</h2>
+  <p>Hello world.</p>
+</dialog>
+
+
+<modal-open-trigger data-for="modal-bottom">
+  <button>Open bottom drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-bottom" data-variant="bottom">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Bottom drawer</h2>
+  <p>Hello world.</p>
+</dialog>
