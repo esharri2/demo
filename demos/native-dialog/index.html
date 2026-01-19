@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Evan's Demos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/demo/main.css">
+    <link rel="stylesheet" href="/demo/demos/native-dialog/index.css">
+    <script type="module" src="/demo/demos/native-dialog/index.js"></script>
+
+  </head>
+  <body>
+    
+      <a class="back" href="/demo/">Back</a>
+    
+    <main id="main"><modal-open-trigger data-for="modal-left">
+  <button>Open left drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-left" data-variant="left">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Left drawer</h2>
+  <p>Hello world.</p>
+</dialog>
+
+<modal-open-trigger data-for="modal-right">
+  <button>Open right drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-right" data-variant="right">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Right drawer</h2>
+  <p>Hello world.</p>
+</dialog>
+
+
+<modal-open-trigger data-for="modal-bottom">
+  <button>Open bottom drawer modal</button>
+</modal-open-trigger>
+
+<dialog closedby="any" id="modal-bottom" data-variant="bottom">
+  <modal-close-trigger><button>Close</button></modal-close-trigger>
+  <h2>Bottom drawer</h2>
+  <p>Hello world.</p>
+</dialog>
+</main>
+  </body>
+</html>

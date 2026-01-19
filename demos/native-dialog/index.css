@@ -1,0 +1,71 @@
+
+
+dialog {
+  --animation-duration: .5s;
+  --animation-timing: ease-out;
+  border: 0;
+  margin: 0;
+  max-width: unset;
+
+}
+
+dialog:open {
+  animation: fade-in var(--animation-duration, .5s) var(--animation-timing);
+}
+
+dialog:open::backdrop {
+  background-color: black;
+  animation: backdrop-fade-in var(--animation-duration, .5s) var(--animation-timing) forwards;
+}
+
+dialog[data-variant='left'], dialog[data-variant='right'] {
+  height: 100%;
+  width: min(80dvw, 600px);
+}
+
+dialog[data-variant='left']{
+  --translate: -100%;
+  width: 80dvw;
+  max-width: 600px;
+}
+
+dialog[data-variant='right']{
+  --translate: 100%;
+   inset-inline-start: unset;
+   inset-inline-end: 0;
+}
+
+dialog[data-variant='bottom']{
+  --translate: 0, 100%;
+  bottom: 0;
+  inset-inline: 0;
+  top: unset;
+  width: 100%;
+  height: min(50dvh, 600px);
+
+}
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translate(var(--translate));
+
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
