@@ -1,0 +1,45 @@
+:root {
+  /* Makes animating to height auto possible */
+  interpolate-size: allow-keywords;
+}
+
+summary {
+  /* Prevent text wrapping under arrow */
+  list-style-position: outside;
+  font-size: 2rem;
+}
+
+/* Style arrow - limited options for ::marker; use a pseudo element for advanced cases, like animating the arrow turn */
+summary::marker {
+  color: grey;
+}
+
+/* User agent shadow dom */
+details::details-content {
+  /* Height */
+  block-size: 0;
+  overflow: clip;
+  /* Content visibility is a UA style we need to transition */
+  transition-property: block-size, content-visibility;
+  transition-duration: .5s;
+  /* Allows us to transition content-visibility */
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+}
+
+section {
+  margin: 10vw;
+}
+
+details * {
+    padding: 0;
+    margin: 0;
+}
+
+details p + p {
+    margin-top: 1rem;
+
+}

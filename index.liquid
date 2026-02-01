@@ -12,6 +12,7 @@ title: My Rad Markdown Blog Post
 
   <ul>
     {%- for demo in collections.demos -%}
+      {% unless demo.data.hide %}
       <li>
         <a href=".{{demo.url}}">{{ demo.data.title }}</a>
         <span class="tag-container">
@@ -22,6 +23,7 @@ title: My Rad Markdown Blog Post
           {%- endfor -%}
         </span>
       </li>
+    {% endunless %}
     {% endfor %}
   </ul>
 </div>
