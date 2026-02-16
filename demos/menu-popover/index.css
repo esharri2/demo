@@ -1,0 +1,121 @@
+dialog {
+  --animation-duration: 0.5s;
+  --animation-timing: ease-out;
+  background-color: grey;
+  border: 0;
+  margin: 0;
+  max-width: unset;
+  margin-top: var(--header-height);
+  animation: fade-in var(--animation-duration, 0.5s) var(--animation-timing) reverse;
+
+}
+
+dialog:popover-open {
+  animation: fade-in var(--animation-duration, 0.5s) var(--animation-timing);
+}
+
+dialog:popover-open::backdrop {
+  background-color: black;
+  animation: backdrop-fade-in .2s
+    var(--animation-timing) forwards;
+  margin-top: var(--header-height);
+  pointer-events: none;
+}
+
+dialog[data-variant="left"],
+dialog[data-variant="right"] {
+  height: 100%;
+  width: min(80dvw, 600px);
+}
+
+dialog[data-variant="left"] {
+  --translate: -100%;
+  width: 80dvw;
+  max-width: 600px;
+}
+
+dialog[data-variant="right"] {
+  --translate: 100%;
+  inset-inline-start: unset;
+  inset-inline-end: 0;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateX(var(--translate));
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+:root {
+  --header-height: 90px;
+}
+header {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+}
+
+
+
+header > nav {
+  align-items: center;
+  display: flex;
+  background-color: bisque;
+  height: 100%;
+}
+
+nav > ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+megamenu-toggle > a {
+  padding: 30px;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Undo sr-only when focus is gained */
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
