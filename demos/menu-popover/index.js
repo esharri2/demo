@@ -1,3 +1,5 @@
+
+// Handle open on hover effects for nav megamenu toggles (click functionality is handled natively by the Popover API)
 class MegamenuToggle extends HTMLElement {
   static register(tagName) {
     customElements.define(tagName || "megamenu-toggle", MegamenuToggle);
@@ -10,9 +12,7 @@ class MegamenuToggle extends HTMLElement {
       this.querySelector("[popovertarget]")?.getAttribute("popovertarget"),
     );
 
-    // State
-    this.open = false;
-    this.timeout = null;
+
     if (!this.link || !this.menu) {
       return;
     }
@@ -26,9 +26,9 @@ class MegamenuToggle extends HTMLElement {
 
     this.link.addEventListener("mouseleave", (event) => {
       const {toElement} = event;
-      console.log("mouseleave: ", toElement)
+
       // Close if mouse is not in the nav or the dialog
-      if (!toElement.closest("nav, dialog")) {
+      if (!toElement.matches("nav, dialog") & !toElement.closest("nav, dialog")) {
         this.closeMenu();
       }
     });

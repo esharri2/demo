@@ -6,20 +6,36 @@ dialog {
   margin: 0;
   max-width: unset;
   margin-top: var(--header-height);
-  animation: fade-in var(--animation-duration, 0.5s) var(--animation-timing) reverse;
-
+  opacity: 0;
+  transform: translateX(var(--translate));
+  transition: all var(--animation-duration, 0.5s) var(--animation-timing)
+    allow-discrete;
 }
 
 dialog:popover-open {
-  animation: fade-in var(--animation-duration, 0.5s) var(--animation-timing);
+  opacity: 1;
+  transform: translateX(0);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateX(var(--translate));
+  }
+}
+
+dialog::backdrop {
+  opacity: 0;
+  transition: opacity var(--animation-duration, 0.5s) var(--animation-timing)
+    allow-discrete;
 }
 
 dialog:popover-open::backdrop {
+  opacity: 0.5;
   background-color: black;
-  animation: backdrop-fade-in .2s
-    var(--animation-timing) forwards;
   margin-top: var(--header-height);
-  pointer-events: none;
+
+  @starting-style {
+    opacity: 0;
+  }
 }
 
 dialog[data-variant="left"],
@@ -40,29 +56,6 @@ dialog[data-variant="right"] {
   inset-inline-end: 0;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    display: none;
-    transform: translateX(var(--translate));
-  }
-
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-
-@keyframes backdrop-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
-
 :root {
   --header-height: 90px;
 }
@@ -74,8 +67,6 @@ header {
   position: sticky;
   top: 0;
 }
-
-
 
 header > nav {
   align-items: center;
@@ -94,7 +85,6 @@ nav > ul {
 megamenu-toggle > a {
   padding: 30px;
 }
-
 
 .sr-only {
   position: absolute;
