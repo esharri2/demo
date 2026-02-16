@@ -1,10 +1,14 @@
 :root {
-    --size-xs: .2rem;
-    --size-s: .4rem;
-
+  --size-xs: 0.2rem;
+  --size-s: 0.4rem;
 }
 
 @layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
   html {
     font-family: system-ui;
     font-size: 18px;
@@ -15,7 +19,11 @@
     margin: 0;
   }
 
-  h1, h2, h3, h4, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
     padding-inline: 1rem;
   }
 
@@ -40,7 +48,7 @@
   .tag {
     background-color: lightgray;
     border-radius: var(--size-xs);
-    font-size: .8rem;
+    font-size: 0.8rem;
     line-height: 1;
     padding: var(--size-xs) var(--size-s);
   }
@@ -50,7 +58,7 @@
     gap: var(--size-xs);
     margin-left: var(--size-xs);
   }
-  
+
   .back {
     background-color: lightgray;
     padding: var(--size-s);
@@ -58,5 +66,4 @@
     bottom: 0;
     right: 0;
   }
-
 }

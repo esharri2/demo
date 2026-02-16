@@ -41,13 +41,11 @@ dialog:popover-open::backdrop {
 dialog[data-variant="left"],
 dialog[data-variant="right"] {
   height: 100%;
-  width: min(80dvw, 600px);
+  width: min(100dvw, 600px);
 }
 
 dialog[data-variant="left"] {
   --translate: -100%;
-  width: 80dvw;
-  max-width: 600px;
 }
 
 dialog[data-variant="right"] {
