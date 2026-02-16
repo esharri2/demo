@@ -6,7 +6,7 @@ tags: ["HTML", "Popover API"]
   <button popovertarget="mobile-menu">Mobile menu</button>
   {% comment %} Mobile menu {% endcomment %}
   <dialog popover id="mobile-menu" data-variant="left">
-    <button popovertargetaction="hide">Close</button>
+    <button popover-target="mobile-menu" popovertargetaction="hide">Close</button>
     <nav>
       <ul>
         <li>
@@ -27,34 +27,38 @@ tags: ["HTML", "Popover API"]
           {% comment %} For keyboard users - will appear on focus {% endcomment %}
           <button class="sr-only" aria-label="Toggle menu 1" popovertarget="menu-1">▼</button>
         </megamenu-toggle>
-        <dialog popover id="menu-1" data-variant="left">
-          <button popovertarget="menu-1" popovertargetaction="hide">Close</button>
-          <h2 id="menu-1-title">Menu 1</h2>
-          <ul aria-labelledby="menu-1-title">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </dialog>
+        <popover-control>
+          <dialog popover id="menu-1" data-variant="left">
+            <button popovertarget="menu-1" popovertargetaction="hide">Close</button>
+            <h2 id="menu-1-title">Menu 1</h2>
+            <ul aria-labelledby="menu-1-title">
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+              <li><a href="#">Link 4</a></li>
+              <li><a href="#">Link 5</a></li>
+            </ul>
+          </dialog>
+        </popover-control>
       </li>
       <li>
         <megamenu-toggle>
           <a href="#">Menu 2</a>
           <button class="sr-only" aria-label="Toggle menu 2" popovertarget="menu-2">▼</button>
         </megamenu-toggle>
-        <dialog popover id="menu-2" data-variant="left">
-          <button popovertarget="menu-2" popovertargetaction="hide">Close</button>
-          <h2 id="menu-2-title">Menu 2</h2>
-          <ul aria-labelledby="menu-2-title">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </dialog>
+        <popover-control>
+          <dialog popover id="menu-2" data-variant="left">
+            <button popovertarget="menu-2" popovertargetaction="hide">Close</button>
+            <h2 id="menu-2-title">Menu 2</h2>
+            <ul aria-labelledby="menu-2-title">
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+              <li><a href="#">Link 4</a></li>
+              <li><a href="#">Link 5</a></li>
+            </ul>
+          </dialog>
+        </popover-control>
       </li>
     </ul>
   </nav>

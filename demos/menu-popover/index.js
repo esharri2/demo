@@ -44,3 +44,43 @@ class MegamenuToggle extends HTMLElement {
 }
 
 MegamenuToggle.register();
+
+
+// Close popover on mouseout
+class PopoverControl extends HTMLElement {
+  static register(tagName) {
+    customElements.define(tagName || "popover-control", PopoverControl);
+  }
+
+  connectedCallback() {
+    // Elements
+    this.menu = this.querySelector("[popover]")
+
+    if (!this.menu) {
+      return;
+    }
+
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    this.menu.addEventListener("mouseenter", (event) => {
+      console.log("enter...")
+    });
+
+    this.menu.addEventListener("mouseleave", (event) => {
+      const {toElement} = event;
+      this.closeMenu()
+
+      console.log("leave, ", toElement)
+
+
+    });
+  }
+
+  closeMenu() {
+    this.menu.hidePopover();
+  }
+}
+
+PopoverControl.register();
