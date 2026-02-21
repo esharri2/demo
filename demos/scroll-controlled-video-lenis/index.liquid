@@ -1,0 +1,36 @@
+---
+title: "Scroll-controlled video with Lenis"
+tags: ["Web components", "Video"]
+---
+<script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
+
+<h1>{{ title }}</h1>
+<p>Note: doesn't work well on mobile yet</p>
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+
+<scroll-controlled-video>
+  <div class="scroll-controlled-video-wrapper">
+    <video
+      poster="{{ '/assets/flower.png' | htmlBaseUrl }}"
+      preload="metadata"
+      muted
+      playsinline
+    >
+      <source
+        media="(width >= 800px)"
+        src="https://primesolid.com/video-scrub-tests/plane-landing-original-ffmpeg-720p-crf18-g2.mp4?desktop"
+      >
+      <source
+        src="https://primesolid.com/video-scrub-tests/plane-landing-original-ffmpeg-720p-crf18-g2.mp4?mobile"
+      >
+    </video>
+  </div>
+</scroll-controlled-video>
+
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}
+{% include 'lorem-paragraphs' %}

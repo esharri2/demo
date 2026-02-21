@@ -1,0 +1,11 @@
+video {
+  height: 100dvh;  
+  object-fit: cover;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.scroll-controlled-video-wrapper {
+  height: 500dvh;
+}
