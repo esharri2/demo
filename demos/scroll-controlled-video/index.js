@@ -22,7 +22,7 @@ export class ScrollControlledVideo extends HTMLElement {
 
   connectedCallback() {
     this.video = this.querySelector("video");
-    this.fetchVideo();
+    // this.fetchVideo();
     this.observeVideos();
   }
 
