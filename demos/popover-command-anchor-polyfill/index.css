@@ -1,0 +1,94 @@
+.grid {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  background-color: bisque;
+  border: solid 1px black;
+  height: 400px;
+  width: 300px;
+}
+
+[popover] {
+  margin: 0 10px 10px 10px;
+  position: absolute;
+  inset: auto;
+  bottom: anchor(bottom);
+  left: anchor(left);
+  right: anchor(right);
+  width: auto;
+}
+
+body {
+  margin: 10px;
+}
+
+/* Popover animation stuff */
+
+/* Transition for the popover itself */
+
+[popover]:popover-open {
+  opacity: 1;
+}
+
+[popover] {
+  font-size: 1.2rem;
+  padding: 10px;
+
+  /* Final state of the exit animation */
+  opacity: 0;
+
+  transition:
+    opacity 0.7s,
+    display 0.7s allow-discrete;
+}
+
+/* Needs to be after the previous [popover]:popover-open rule
+to take effect, as the specificity is the same */
+@starting-style {
+  [popover]:popover-open {
+    opacity: 0;
+  }
+}
+
+/* Dialog animation stuff */
+
+dialog {
+  --animation-duration: 0.5s;
+  --animation-timing: ease-out;
+}
+
+dialog:open {
+  animation: fade-in var(--animation-duration, 0.5s) var(--animation-timing);
+}
+
+dialog:open::backdrop {
+  background-color: black;
+  animation: backdrop-fade-in var(--animation-duration, 0.5s)
+    var(--animation-timing) forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translate(var(--translate));
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
