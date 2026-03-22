@@ -64,17 +64,8 @@ class PopoverControl extends HTMLElement {
   }
 
   bindEvents() {
-    this.menu.addEventListener("mouseenter", (event) => {
-      console.log("enter...")
-    });
-
     this.menu.addEventListener("mouseleave", (event) => {
-      const {toElement} = event;
       this.closeMenu()
-
-      console.log("leave, ", toElement)
-
-
     });
   }
 
