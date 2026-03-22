@@ -1,57 +1,47 @@
 dialog {
-  --animation-duration: 0.5s;
-  --animation-timing: ease-out;
+  /* --animation-duration: 0.5s; */
+  /* --animation-timing: ease-out; */
   background-color: grey;
   border: 0;
   margin: 0;
   max-width: unset;
-  margin-top: var(--header-height);
+  /* margin-top: var(--header-height);
   opacity: 0;
   transform: translateX(var(--translate));
   transition: all var(--animation-duration, 0.5s) var(--animation-timing)
-    allow-discrete;
+    allow-discrete; */
 }
 
 dialog:popover-open {
-  opacity: 1;
+  /* opacity: 1;
   transform: translateX(0);
 
   @starting-style {
     opacity: 0;
     transform: translateX(var(--translate));
-  }
+  } */
 }
 
 dialog::backdrop {
-  opacity: 0;
+  /* opacity: 0;
   transition: opacity var(--animation-duration, 0.5s) var(--animation-timing)
-    allow-discrete;
+    allow-discrete; */
 }
 
 dialog:popover-open::backdrop {
-  opacity: 0.5;
+  /* opacity: 0.5;
   background-color: black;
   margin-top: var(--header-height);
 
   @starting-style {
     opacity: 0;
-  }
-}
-
-dialog[data-variant="left"],
-dialog[data-variant="right"] {
-  height: 100%;
-  width: min(100dvw, 600px);
+  } */
 }
 
 dialog[data-variant="left"] {
   --translate: -100%;
-}
-
-dialog[data-variant="right"] {
-  --translate: 100%;
-  inset-inline-start: unset;
-  inset-inline-end: 0;
+  height: 100%;
+  width: min(100dvw, 600px);
 }
 
 :root {
