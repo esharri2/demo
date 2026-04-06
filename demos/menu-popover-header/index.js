@@ -1,19 +1,17 @@
-
 // Handle open on hover effects for nav megamenu toggles (click functionality is handled natively by the Popover API)
-class MegamenuToggle extends HTMLElement {
+class PopoverToggle extends HTMLElement {
   static register(tagName) {
-    customElements.define(tagName || "megamenu-toggle", MegamenuToggle);
+    customElements.define(tagName || "popover-toggle", PopoverToggle);
   }
 
   connectedCallback() {
     // Elements
     this.link = this.querySelector("a");
-    this.menu = document.getElementById(
+    this.relatedPopover = document.getElementById(
       this.querySelector("[popovertarget]")?.getAttribute("popovertarget"),
     );
 
-
-    if (!this.link || !this.menu) {
+    if (!this.link || !this.relatedPopover) {
       return;
     }
     this.bindEvents();
@@ -25,26 +23,27 @@ class MegamenuToggle extends HTMLElement {
     });
 
     this.link.addEventListener("mouseleave", (event) => {
-      const {toElement} = event;
+      const { toElement } = event;
 
       // Close if mouse is not in the nav or the dialog
-      if (!toElement.matches("nav, dialog") & !toElement.closest("nav, dialog")) {
-        this.closeMenu();
+      if (
+        !toElement.matches("nav, dialog") & !toElement.closest("nav, dialog")
+      ) {
+        this.closePopover();
       }
     });
   }
 
   openMenu() {
-    this.menu.showPopover();
+    this.relatedPopover.showPopover();
   }
 
-  closeMenu() {
-    this.menu.hidePopover();
+  closePopover() {
+    this.relatedPopover.hidePopover();
   }
 }
 
-MegamenuToggle.register();
-
+PopoverToggle.register();
 
 // Close popover on mouseout
 class PopoverControl extends HTMLElement {
@@ -52,25 +51,72 @@ class PopoverControl extends HTMLElement {
     customElements.define(tagName || "popover-control", PopoverControl);
   }
 
+  animationOptions = [
+    [
+      { transform: "translateX(-100%)", display: "none" },
+      {
+        transform: "translateX(0)",
+        display: "block",
+      },
+    ],
+    {
+      duration: 500,
+      fill: "forwards",
+      easing: "ease-in-out"
+    },
+  ];
+
   connectedCallback() {
     // Elements
-    this.menu = this.querySelector("[popover]")
+    this.relatedPopover = this.querySelector("[popover]");
+    this.header = document.querySelector("header");
 
-    if (!this.menu) {
+    this.relatedPopoverAnimation = null;
+    this.headerFillAnimation = null;
+
+    if (!this.relatedPopover) {
       return;
     }
 
+    this.insertHeaderFill();
     this.bindEvents();
   }
 
-  bindEvents() {
-    this.menu.addEventListener("mouseleave", (event) => {
-      this.closeMenu()
-    });
+  insertHeaderFill() {
+    // create an element and insert it, save reference at this.headerfill
   }
 
-  closeMenu() {
-    this.menu.hidePopover();
+  bindEvents() {
+    this.relatedPopover.addEventListener("toggle", (event) => {
+      console.log(this, event.newState);
+      [this.relatedPopoverAnimation, this.headerFillAnimation].forEach((animation) => {
+        if (animation) animation.cancel();
+      });
+      if (event.newState === "open") {
+        if (!this.headerFill) {
+          this.headerFill = document.createElement("div");
+          this.headerFill.classList.add("header__fill");
+          this.header.insertAdjacentElement("afterbegin", this.headerFill);
+        }
+
+
+        this.relatedPopoverAnimation = this.relatedPopover.animate(...this.animationOptions);
+        this.headerFillAnimation = this.headerFill.animate(
+          ...this.animationOptions,
+        );
+      } else {
+        this.headerFillAnimation.reverse();
+        this.relatedPopoverAnimation.reverse();
+      }
+    });
+
+    // this.relatedPopover.addEventListener("mouseleave", (event) => {
+    //   this.closePopover();
+    // });
+  }
+
+  closePopover() {
+    this.relatedPopover.hidePopover();
   }
 }
 
