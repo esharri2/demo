@@ -1,65 +1,71 @@
 dialog {
-  /* --animation-duration: 0.5s; */
-  /* --animation-timing: ease-out; */
+  height: calc(100dvh - var(--header-height));
   background-color: grey;
   border: 0;
   margin: 0;
   max-width: unset;
-  /* margin-top: var(--header-height);
-  opacity: 0;
+  margin-top: var(--header-height);
   transform: translateX(var(--translate));
-  transition: all var(--animation-duration, 0.5s) var(--animation-timing)
-    allow-discrete; */
-}
-
-dialog:popover-open {
-  /* opacity: 1;
-  transform: translateX(0);
-
-  @starting-style {
-    opacity: 0;
-    transform: translateX(var(--translate));
-  } */
+  overscroll-behavior: contain;
 }
 
 dialog::backdrop {
-  /* opacity: 0;
-  transition: opacity var(--animation-duration, 0.5s) var(--animation-timing)
-    allow-discrete; */
+  display: block;
+  opacity: 0;
+  /* transition-delay: .25s; */
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transition-behavior: allow-discrete;
+  transition-property: opacity, display, overlay;
+  margin-top: var(--header-height);
+  background-color: black;
 }
 
 dialog:popover-open::backdrop {
-  /* opacity: 0.5;
-  background-color: black;
-  margin-top: var(--header-height);
+  opacity: 0.5;
+  display: block;
+}
 
-  @starting-style {
+@starting-style {
+  [popover]:popover-open::backdrop {
     opacity: 0;
-  } */
+  }
 }
 
 dialog[data-variant="left"] {
   --translate: -100%;
-  height: 100%;
   width: min(100dvw, 600px);
 }
 
 :root {
   --header-height: 90px;
 }
+
 header {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: bisque;
   display: flex;
   height: var(--header-height);
   position: sticky;
   top: 0;
 }
 
+/* Kludge to make it look like the drawer is under the header; animated in and out with the drawer*/
+.header__fill {
+  display: none;
+  position: absolute;
+  background-color: grey;
+  top: 0;
+  bottom: 0;
+  width: min(100dvw, 600px);
+  pointer-events: none;
+  z-index: -1;
+  transform: translateX(var(--translate));
+}
+
 header > nav {
   align-items: center;
   display: flex;
-  background-color: bisque;
   height: 100%;
 }
 
@@ -70,8 +76,20 @@ nav > ul {
   padding: 0;
 }
 
-megamenu-toggle > a {
+popover-toggle > a {
   padding: 30px;
+}
+
+popover-toggle {
+  @media screen and (width <= 769px) {
+    display: none;
+  }
+}
+
+[popovertarget="mobile-menu"] {
+  @media screen and (width > 769px) {
+    display: none;
+  }
 }
 
 .sr-only {
