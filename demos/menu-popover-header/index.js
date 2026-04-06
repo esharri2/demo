@@ -1,7 +1,7 @@
 // Handle open on hover effects for nav megamenu toggles (click functionality is handled natively by the Popover API)
-class PopoverToggle extends HTMLElement {
+class NavigationPopoverToggle extends HTMLElement {
   static register(tagName) {
-    customElements.define(tagName || "popover-toggle", PopoverToggle);
+    customElements.define(tagName || "navigation-popover-toggle", NavigationPopoverToggle);
   }
 
   connectedCallback() {
@@ -43,12 +43,12 @@ class PopoverToggle extends HTMLElement {
   }
 }
 
-PopoverToggle.register();
+NavigationPopoverToggle.register();
 
 // Close popover on mouseout
-class PopoverControl extends HTMLElement {
+class NavigationPopoverControl extends HTMLElement {
   static register(tagName) {
-    customElements.define(tagName || "popover-control", PopoverControl);
+    customElements.define(tagName || "navigation-popover-control", NavigationPopoverControl);
   }
 
   animationOptions = [
@@ -78,17 +78,13 @@ class PopoverControl extends HTMLElement {
       return;
     }
 
-    this.insertHeaderFill();
     this.bindEvents();
   }
 
-  insertHeaderFill() {
-    // create an element and insert it, save reference at this.headerfill
-  }
 
   bindEvents() {
+    // Use the web animation API to coordinate animation of popover and the header fill to make it look like popover is under the header
     this.relatedPopover.addEventListener("toggle", (event) => {
-      console.log(this, event.newState);
       [this.relatedPopoverAnimation, this.headerFillAnimation].forEach((animation) => {
         if (animation) animation.cancel();
       });
@@ -98,7 +94,6 @@ class PopoverControl extends HTMLElement {
           this.headerFill.classList.add("header__fill");
           this.header.insertAdjacentElement("afterbegin", this.headerFill);
         }
-
 
         this.relatedPopoverAnimation = this.relatedPopover.animate(...this.animationOptions);
         this.headerFillAnimation = this.headerFill.animate(
@@ -110,9 +105,9 @@ class PopoverControl extends HTMLElement {
       }
     });
 
-    // this.relatedPopover.addEventListener("mouseleave", (event) => {
-    //   this.closePopover();
-    // });
+    this.relatedPopover.addEventListener("mouseleave", (event) => {
+      this.closePopover();
+    });
   }
 
   closePopover() {
@@ -120,4 +115,4 @@ class PopoverControl extends HTMLElement {
   }
 }
 
-PopoverControl.register();
+NavigationPopoverControl.register();

@@ -5,7 +5,7 @@ tags: ["HTML", "Popover API"]
 <header>
   <button popovertarget="mobile-menu">Mobile menu</button>
   {% comment %} Mobile menu {% endcomment %}
-   <popover-control>
+   <navigation-popover-control>
   <dialog popover id="mobile-menu" data-variant="left">
     <button popovertarget="mobile-menu" popovertargetaction="hide">Close</button>
     <nav>
@@ -19,17 +19,17 @@ tags: ["HTML", "Popover API"]
       </ul>
     </nav>
   </dialog>
-  </popover-control>
+  </navigation-popover-control>
   {% comment %} Desktop nav {% endcomment %}
   <nav>
     <ul>
       <li>
-        <popover-toggle>
+        <navigation-popover-toggle>
           <a href="#">Menu 1</a>
           {% comment %} For keyboard users - will appear on focus {% endcomment %}
           <button class="sr-only" aria-label="Toggle menu 1" popovertarget="menu-1">▼</button>
-        </popover-toggle>
-        <popover-control  data-id="1">
+        </navigation-popover-toggle>
+        <navigation-popover-control  data-id="1">
           <dialog popover id="menu-1" data-variant="left">
             <button popovertarget="menu-1" popovertargetaction="hide">Close</button>
             <h2 id="menu-1-title">Menu 1</h2>
@@ -83,14 +83,14 @@ tags: ["HTML", "Popover API"]
               <li><a href="#">Link last</a></li>
             </ul>
           </dialog>
-        </popover-control>
+        </navigation-popover-control>
       </li>
       <li>
-        <popover-toggle>
+        <navigation-popover-toggle>
           <a href="#">Menu 2</a>
           <button class="sr-only" aria-label="Toggle menu 2" popovertarget="menu-2">▼</button>
-        </popover-toggle>
-        <popover-control  data-id="2">
+        </navigation-popover-toggle>
+        <navigation-popover-control  data-id="2">
           <dialog popover id="menu-2" data-variant="left">
             <button popovertarget="menu-2" popovertargetaction="hide">Close</button>
             <h2 id="menu-2-title">Menu 2</h2>
@@ -102,7 +102,7 @@ tags: ["HTML", "Popover API"]
               <li><a href="#">Link 5</a></li>
             </ul>
           </dialog>
-        </popover-control>
+        </navigation-popover-control>
       </li>
     </ul>
   </nav>
