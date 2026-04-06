@@ -13,7 +13,7 @@ dialog::backdrop {
   display: block;
   opacity: 0;
   /* transition-delay: .25s; */
-  transition-duration: 1s;
+  transition-duration: .5s;
   transition-timing-function: ease-in-out;
   transition-behavior: allow-discrete;
   transition-property: opacity, display, overlay;
@@ -76,11 +76,11 @@ nav > ul {
   padding: 0;
 }
 
-popover-toggle > a {
+navigation-popover-toggle > a {
   padding: 30px;
 }
 
-popover-toggle {
+navigation-popover-toggle {
   @media screen and (width <= 769px) {
     display: none;
   }
