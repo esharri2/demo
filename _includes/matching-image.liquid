@@ -1,0 +1,8 @@
+
+{% assign number = page.fileSlug | split: "-" | last %}
+{% assign id = 236 | plus: number %}
+
+
+<h1>Page {{ number }}</h1>
+
+<img src="https://picsum.photos/id/{{id}}/600/600">
