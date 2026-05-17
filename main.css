@@ -27,7 +27,7 @@
     padding-inline: 1rem;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) { */
     @view-transition {
       navigation: auto;
     }
@@ -35,7 +35,7 @@
     html {
       interpolate-size: allow-keywords;
     }
-  }
+  /* } */
 }
 
 @layer utilities {
