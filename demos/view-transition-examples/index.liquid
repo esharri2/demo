@@ -4,16 +4,7 @@ tags: ["CSS animation"]
 ---
 <h1>View transition examples</h1>
 
-{% assign id = 237 %}
+<ul>
+  <li><a href="fade">Fade example</li>
+</ul>
 
-<div class="grid">
-  {% for i in (1..20) -%}
-    <article>
-      <a href="page-{{ i }}">
-        <img src="https://picsum.photos/id/{{id}}/900/900" height=900 width=900/>
-        {% assign id = id | plus: 1 %}
-        <p>hello world</p>
-      </a>
-    </article>
-  {%- endfor %}
-</div>

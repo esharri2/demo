@@ -1,0 +1,32 @@
+<style>
+  .grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media screen and (min-width: 990px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  article img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+{% assign id = 237 %}
+
+<div class="grid">
+  {% for i in (1..20) -%}
+    <article>
+      <a href="/demos/view-transition-examples/{{type}}/page-{{ i }}">
+        <img src="https://picsum.photos/id/{{id}}/900/900" height="900" width="900/">
+        {% assign id = id | plus: 1 %}
+        <p>hello world</p>
+      </a>
+    </article>
+  {%- endfor %}
+</div>
