@@ -11,9 +11,9 @@
 
   </head>
   <body>
-    {% if page.url != "/"%}
+    {% comment %} {% if page.url != "/"%}
       <a class="back" href="/">Back</a>
-    {% endif %}
+    {% endif %} {% endcomment %}
     <main id="main">{{ content }}</main>
   </body>
 </html>
