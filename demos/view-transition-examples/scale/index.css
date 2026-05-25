@@ -1,12 +1,20 @@
-/* :view-transition-group(root) {
-  animation-duration: 2s;
+  /* @view-transition {
+    navigation: auto;
+  } */
+
+   :view-transition-group(*) {
+    animation-duration: 3s;
+  } 
+/* 
+ :view-transition-group(.image) {
+  animation-duration: 5s;
 }
 
-::view-transition-old(root) {
+::view-transition-old(.image) {
   animation-name: scale-out;
 }
 
-::view-transition-new(root) {
+::view-transition-new(.image) {
   animation-name: scale-in;
 }
 
@@ -14,12 +22,19 @@
 
 @keyframes scale-in {
   from {
-    scale: 0;
+    scale: 2;
+  }
+  to {
+    scale: 1;
   }
 }
 
 @keyframes scale-out {
-  to {
-    scale: 0;
+  from {
+    scale: 1;
   }
-} */
+
+  to {
+    scale: 2;
+  }
+}  */
