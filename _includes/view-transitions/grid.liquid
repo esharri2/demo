@@ -23,7 +23,7 @@
   {% for i in (1..20) -%}
     <article>
       <a href="/demos/view-transition-examples/{{type}}/page-{{ i }}">
-        <img src="https://picsum.photos/id/{{id}}/900/900" height="900" width="900/">
+        <img {% if add_view_transition %} style="view-transition-name: image-{{ id }}" {% endif %} src="https://picsum.photos/id/{{id}}/900/900" height="900" width="900/">
         {% assign id = id | plus: 1 %}
         <p>hello world</p>
       </a>

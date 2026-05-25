@@ -6,4 +6,4 @@
 
 <h1>{{ type }} example {{ number }}</h1>
 
-<img src="https://picsum.photos/id/{{id}}/600/600">
+<img {% if add_view_transition %} style="view-transition-name: image-{{ id }}" {% endif %} src="https://picsum.photos/id/{{id}}/600/600">

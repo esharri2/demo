@@ -4,9 +4,12 @@ tags: ["CSS animation"]
 ---
 <h1>View transition examples</h1>
 
-<ul>
-  <li><a href="fade">Fade example</li>
-  <li><a href="move">Fade example</li>
+{% assign examples = "fade,slide,scale" %}
+{% assign examples_array = examples | split: "," %}
 
+<ul>
+  {% for example in examples_array %}
+    <li><a href="{{ example }}">{{ example }} example</li>
+  {% endfor %}
 </ul>
 

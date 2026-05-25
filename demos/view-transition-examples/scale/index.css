@@ -1,0 +1,25 @@
+/* :view-transition-group(root) {
+  animation-duration: 2s;
+}
+
+::view-transition-old(root) {
+  animation-name: scale-out;
+}
+
+::view-transition-new(root) {
+  animation-name: scale-in;
+}
+
+
+
+@keyframes scale-in {
+  from {
+    scale: 0;
+  }
+}
+
+@keyframes scale-out {
+  to {
+    scale: 0;
+  }
+} */
