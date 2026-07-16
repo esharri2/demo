@@ -1,0 +1,75 @@
+.wrapper {
+  max-width: 600px;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+video-controls {
+  --transition-duration: .5s;
+  --track-height: 16px;
+  --track-background: lightgrey;
+  --thumb-background: purple;
+  --thumb-radius: 16px;
+}
+
+.progress-wrapper {
+  position: relative;
+}
+
+/* Target Input */
+[data-progress] {
+  display: block;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+
+/* Progress bar */
+[data-progress]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: var(--thumb-radius);
+  height: var(--track-height);
+  width: var(--range-pct, 0);
+  background-color: var(--thumb-background);
+  pointer-events: none;
+  z-index: 1;
+  transition: width var(--transition-duration) linear;
+}
+
+/* --- Webkit Browsers --- */
+[data-progress]::-webkit-slider-runnable-track, p {
+  height: var(--track-height);
+  background: var(--track-background);
+  border-radius: var(--thumb-radius);
+}
+
+[data-progress]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: var(--track-height);
+  width: var(--track-height);
+  background: var(--thumb-background);
+  border-radius: var(--thumb-radius);
+}
+
+/* --- Firefox --- */
+[data-progress]::-moz-range-track {
+  height: var(--track-height);
+  background: var(--track-background); 
+  border-radius: var(--thumb-radius);
+}
+
+[data-progress]::-moz-range-thumb {
+  height: var(--track-height);
+  width: var(--track-height);
+  background: var(--thumb-background);
+  border-radius: var(--thumb-radius);
+}

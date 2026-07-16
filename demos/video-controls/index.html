@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Evan's Demos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/demo/main.css">
+
+    <link rel="stylesheet" href="/demo/demos/video-controls/index.css">
+    <script type="module" src="/demo/demos/video-controls/index.js"></script>
+
+  </head>
+  <body>
+    
+    <main id="main">
+
+<div class="wrapper">
+<video id="my-video" preload="metadata" controls="" loop="">
+  <source src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm" type="video/webm">
+</video>
+
+<video-controls data-id="my-video">
+  <div class="progress-wrapper">
+    <input data-progress="" type="range" id="cowbell" name="cowbell" min="0" max="100" value="0" step=".01">
+    <label for="cowbell">Cowbell</label>
+  </div>
+
+  <button data-play="">toggle playback</button>
+  <button data-mute="">toggle sound</button>
+</video-controls>
+</div>
+</main>
+  </body>
+</html>
