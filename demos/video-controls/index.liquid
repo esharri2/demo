@@ -1,0 +1,33 @@
+---
+title: "Video controls"
+tags: ["Web components", "Video"]
+---
+
+
+<div class="wrapper">
+<video id="my-video" preload="metadata" controls loop>
+  <source
+    src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm"
+    type="video/webm"
+  >
+</video>
+
+<video-controls data-id="my-video">
+  <div class="progress-wrapper">
+    <input
+      data-progress
+      type="range"
+      id="cowbell"
+      name="cowbell"
+      min="0"
+      max="100"
+      value="0"
+      step=".01"
+    >
+    <label for="cowbell">Cowbell</label>
+  </div>
+
+  <button data-play>toggle playback</button>
+  <button data-mute>toggle sound</button>
+</video-controls>
+</div>
