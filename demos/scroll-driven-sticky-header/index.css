@@ -1,0 +1,36 @@
+
+header {
+  display: contents;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: bisque;
+  font-size: 30px;
+}
+
+.bar {
+  background-color: gray;
+}
+
+
+/* STICKY HEADER */
+
+ @keyframes header-transition {
+  from {
+    /* background-color: red; */
+ }
+  to {
+    background-color: cyan;
+    font-size: 16px;
+  }
+}
+
+.header {
+  animation: header-transition linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 10vh;
+}
+
+
