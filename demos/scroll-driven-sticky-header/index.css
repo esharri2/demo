@@ -1,0 +1,58 @@
+
+header {
+  display: contents;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: bisque;
+  font-size: 30px;
+}
+
+.bar {
+  background-color: gray;
+}
+
+
+/* STICKY HEADER */
+
+ @keyframes header-transition {
+  from {
+    /* background-color: red; */
+ }
+  to {
+    background-color: cyan;
+    font-size: 16px;
+  }
+}
+
+.header {
+  animation: header-transition linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 10vh;
+}
+
+
+/*
+#sticky-parallax-header {
+  position: fixed;
+  top: 0;
+  animation: sticky-parallax-header-move-and-size linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 90vh;
+
+  color: #fff;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: calc(4vw + 1em);
+  z-index: 1;
+}
+
+body {
+  padding-top: 100vh;
+} */

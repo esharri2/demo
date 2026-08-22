@@ -10,16 +10,19 @@ title: My Rad Markdown Blog Post
     from elsewhere!
   </p>
 
+  {% assign demos = collections.demos | sort: 'data.title' %}
+
+
   <ul>
-    {%- for demo in collections.demos -%}
-      {% unless demo.data.hide %}
+    {%- for demo in demos -%}
+      {% unless demo.data.hide or demo.data.title == blank %}
       <li>
         <a href=".{{demo.url}}">{{ demo.data.title }}</a>
         <span class="tag-container">
           {%- for tag in demo.data.tags -%}
             {%- if tag != 'demos' -%}
               <span class="tag">{{ tag }}</span>
-            {%- endif -%} 
+            {%- endif -%}   
           {%- endfor -%}
         </span>
       </li>
