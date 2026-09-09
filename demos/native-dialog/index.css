@@ -1,21 +1,43 @@
-
-
 dialog {
-  --animation-duration: .5s;
+  --animation-duration: 1.5s;
   --animation-timing: ease-out;
   border: 0;
   margin: 0;
   max-width: unset;
+
+  transition-behavior: allow-discrete;
+  transition: 
+    opacity var(--animation-duration) var(--animation-timing), 
+    background-color var(--animation-duration) var(--animation-timing), 
+    transform var(--animation-duration) var(--animation-timing), 
+    display var(--animation-duration) var(--animation-timing);
+
+  /* Add transition-behavior */
+  transition-behavior: allow-discrete;
+
+  /* Style when open */
+  background-color: white;
+  /* opacity: 1; */
+  transform: translate(0);
 }
 
-dialog:open {
-  animation: fade-in var(--animation-duration, .5s) var(--animation-timing);
+
+/* The style when closed */
+@starting-style {
+  dialog {
+    /* opacity: 0.5; */
+    background-color: gray;
+    transform: translate(var(--translate));
+  }
 }
 
-dialog:open::backdrop {
-  background-color: black;
-  animation: backdrop-fade-in var(--animation-duration, .5s) var(--animation-timing) forwards;
+/* The style when closed */
+dialog:not([open]) {
+  /* opacity: 0.5; */
+  background-color: gray;
+  transform: translate(var(--translate));
 }
+
 
 dialog[data-variant='left'], dialog[data-variant='right'] {
   height: 100%;
@@ -41,30 +63,6 @@ dialog[data-variant='bottom']{
   top: unset;
   width: 100%;
   height: min(50dvh, 600px);
-
 }
 
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    display: none;
-    transform: translate(var(--translate));
-
-  }
-
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-
-@keyframes backdrop-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}

@@ -3,7 +3,7 @@ title: Navigation menu with Popover API
 tags: ["HTML", "Popover API"]
 ---
 <header>
-  <button popovertarget="mobile-menu">Mobile menu</button>
+  {% comment %} <button popovertarget="mobile-menu">Mobile menu</button> {% endcomment %}
   {% comment %} Mobile menu {% endcomment %}
   <dialog popover id="mobile-menu" data-variant="left">
     <button popovertarget="mobile-menu" popovertargetaction="hide">Close</button>
@@ -22,7 +22,7 @@ tags: ["HTML", "Popover API"]
   <nav>
     <ul>
       <li>
-        <megamenu-toggle>
+        <megamenu-toggle class="hidden">
           <a href="#">Menu 1</a>
           {% comment %} For keyboard users - will appear on focus {% endcomment %}
           <button class="sr-only" aria-label="Toggle menu 1" popovertarget="menu-1">▼</button>
