@@ -6,24 +6,20 @@ dialog {
   margin: 0;
   max-width: unset;
   margin-top: var(--header-height);
-  opacity: 0;
   transform: translateX(var(--translate));
   transition: all var(--animation-duration, 0.5s) var(--animation-timing)
     allow-discrete;
 }
 
 dialog:popover-open {
-  opacity: 1;
   transform: translateX(0);
 
   @starting-style {
-    opacity: 0;
     transform: translateX(var(--translate));
   }
 }
 
 dialog::backdrop {
-  opacity: 0;
   transition: opacity var(--animation-duration, 0.5s) var(--animation-timing)
     allow-discrete;
 }
