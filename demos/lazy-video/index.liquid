@@ -1,19 +1,19 @@
 ---
-title: "Lazy load video"
+title: "Lazy video"
 tags: ["Web components", "Video"]
 ---
 {% include 'lorem-paragraphs' %}
 {% include 'lorem-paragraphs' %}
 {% include 'lorem-paragraphs' %}
 
-<lazy-load-video>
+<lazy-video auto-pause>
   <video poster="{{ '/assets/flower.png' | htmlBaseUrl }}" preload="none" autoplay muted controls>
     <source
       data-src="https://b7f01007-02f2-4cf3-89b2-8742007fe4d9.mdnplay.dev/shared-assets/videos/flower.webm"
       type="video/webm"
     >
   </video>
-</lazy-load-video>
+</lazy-video>
 
 {% include 'lorem-paragraphs' %}
 {% include 'lorem-paragraphs' %}
