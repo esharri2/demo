@@ -17,8 +17,6 @@ export class CountdownTimer extends HTMLElement {
     } else {
       this.init();
     }
-
-  
   }
 
   init() {
@@ -69,8 +67,8 @@ export class CountdownTimer extends HTMLElement {
     this.innerHTML = `
       ${days > 0 ? `${days} <span>days</span>` : ""}
       ${hours > 0 ? `${hours} <span>hours</span>` : ""}
-      ${minutes > 0 ? `${minutes} <span>minutes</span>` : ""}
-      ${seconds > 0 ? `${seconds} <span>seconds</span>` : ""}
+      ${minutes > 0 && hours > 0 ? `${minutes} <span>minutes</span>` : ""}
+      ${seconds > 0 && minutes > 0 ? `${seconds} <span>seconds</span>` : ""}
     `;
   }
 }
