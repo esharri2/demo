@@ -10,8 +10,13 @@ header {
   font-size: 30px;
 }
 
-.bar {
+.bar, .links {
   background-color: gray;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 
@@ -22,7 +27,7 @@ header {
     /* background-color: red; */
  }
   to {
-    background-color: cyan;
+    background-color: transparent;
     font-size: 16px;
   }
 }
@@ -30,7 +35,7 @@ header {
 .header {
   animation: header-transition linear forwards;
   animation-timeline: scroll();
-  animation-range: 0vh 10vh;
+  animation-range: 5vh 15vh;
 }
 
 
