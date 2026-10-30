@@ -28,7 +28,7 @@ img {
  }
   to {
     background-color: transparent;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
 }
 
